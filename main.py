@@ -25,6 +25,9 @@ ma_200_days = data.Close.rolling(window=200).mean() # 200 days moving average
 data_train = pd.DataFrame(data.Close[0:int(len(data)*0.8)]) # 80% of data for training
 data_test = pd.DataFrame(data.Close[int(len(data)*0.8):]) # 20% of data for testing
 
-print(data_train.shape[0])
-print(data_test.shape[0])
+# print(data_train.shape[0]) # 2216 days for training
+# print(data_test.shape[0]) # 554 days for testing
 
+from sklearn.preprocessing import MinMaxScaler # Normalizing the data
+scaler = MinMaxScaler(feature_range=(0,1))
+data_train_scaled = scaler.fit_transform(data_train)
