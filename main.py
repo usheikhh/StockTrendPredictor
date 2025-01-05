@@ -10,12 +10,21 @@ end = '2025-12-31'
 
 stock = 'GOOG'
 
-data = yf.download(stock, start, end)
+data = yf.download(stock, start, end) # yahoo finance data download 
+data.dropna(inplace=True)  
 
-ma_100_days = data.Close.rolling(window=100).mean()
-ma_200_days = data.Close.rolling(window=200).mean()
-plt.figure(figsize=(12,6))
-plt.plot(ma_100_days, 'r')
-plt.plot(ma_200_days, 'b')
-plt.plot(data.Close,'g')
-plt.show()
+ma_100_days = data.Close.rolling(window=100).mean() # 100 days moving average
+ma_200_days = data.Close.rolling(window=200).mean() # 200 days moving average
+# plt.figure(figsize=(12,6))
+# plt.plot(ma_100_days, 'r')
+# plt.plot(ma_200_days, 'b')
+# plt.plot(data.Close,'g')
+# plt.show()
+
+
+data_train = pd.DataFrame(data.Close[0:int(len(data)*0.8)]) # 80% of data for training
+data_test = pd.DataFrame(data.Close[int(len(data)*0.8):]) # 20% of data for testing
+
+print(data_train.shape[0])
+print(data_test.shape[0])
+
