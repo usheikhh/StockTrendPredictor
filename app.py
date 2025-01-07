@@ -5,7 +5,8 @@ from keras.models import load_model
 import streamlit as st
 import matplotlib.pyplot as plt
 
-model = load_model('C:\Users\usman\Documents\Stock Trend Prediction Web App\Stock Predictions Model.keras')
+
+model = load_model("Stock Predictions Model.keras")
 
 st.header('Stock Price Predictor')
 
@@ -50,8 +51,10 @@ plt.plot(predict, 'r', label = "Original Price")
 plt.plot(y, 'g', label = "Predicted Price")
 plt.xlabel('Days')
 plt.ylabel('Price')
+plt.legend()
 plt.show()
-st.plotly_chart(figure4)
+st.pyplot(figure4)
+
 
 
 
@@ -60,8 +63,9 @@ ma_50_days = data.Close.rolling(window=50).mean()
 figure1 = plt.figure(figsize=(12,6))
 plt.plot(ma_50_days, 'r', label = "MA 50")
 plt.plot(data.Close, 'g', label = 'Original Price')
+plt.legend()
 plt.show()
-st.plotly_chart(figure1)
+st.pyplot(figure1)
 
 st.subheader('Price vs MA 50 vs MA 100') 
 ma_100_days = data.Close.rolling(window=100).mean()
@@ -69,8 +73,9 @@ figure2 = plt.figure(figsize=(12,6))
 plt.plot(ma_50_days, 'r', label = "MA 50")
 plt.plot(data.Close, 'g', label = 'Original Price')
 plt.plot(ma_100_days, 'b', label = 'MA 100')
+plt.legend()
 plt.show()
-st.plotly_chart(figure2)
+st.pyplot(figure2)
 
 st.subheader('Price vs MA 100 vs MA 200') 
 ma_200_days = data.Close.rolling(window=200).mean()
@@ -78,8 +83,9 @@ figure3 = plt.figure(figsize=(12,6))
 plt.plot(data.Close, 'g', label = 'Original Price')
 plt.plot(ma_100_days, 'b', label = 'MA 100')
 plt.plot(ma_200_days, 'r', label = 'MA 200')
+plt.legend()
 plt.show()
-st.plotly_chart(figure3)
+st.pyplot(figure3)
 
 
 

@@ -8,7 +8,7 @@ import yfinance as yf
 start = '2014-01-01'
 end = '2025-12-31'
 
-stock = 'AAPL' # Tesla stock data
+stock = 'TSLA' # Tesla stock data
 
 data = yf.download(stock, start, end) # yahoo finance data download 
 data.dropna(inplace=True)  
