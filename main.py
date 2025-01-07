@@ -109,7 +109,7 @@ plt.title('Stock Price Prediction')
 plt.legend()
 plt.show()
 
-model.save('Stock Predictions Model.keras') # saving the model for future use
+model.save('StockPredictionsModel.keras') # saving the model for future use
 
 
 
