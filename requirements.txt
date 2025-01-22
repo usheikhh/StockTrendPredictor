@@ -4,4 +4,4 @@ matplotlib==3.4.3
 yfinance==0.1.63
 scikit-learn
 keras
-streamlit==0.86.0
+streamlit
