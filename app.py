@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
 import yfinance as yf
-from keras.models import load_model
+import keras.models
 import streamlit as st
 import matplotlib.pyplot as plt
 
 
-model = load_model("StockPredictionsModel.keras")
+model = keras.models.load_model("StockPredictionsModel.keras")
 
 st.header('Stock Price Predictor')
 
